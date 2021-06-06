@@ -14,13 +14,17 @@ import java.util.List;
 @RequestMapping(value = "/stock")
 public class StockController {
 
-    / ciclo controla quando estancia a camada
+    // Fecha o ciclo controla quando estancia a camada
     @Autowired
     private StockService service;
 
+    //END POINT                     metodo
+       // Responder algo  proprio DTO                 recebeu do envio
+    // Inserindo algo é um post mapping
+                 // enviar em formato json                     devolve o formato json
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<StockDTO> save(@Valid @RequestBody StockDTO dto){
-   // response 200 devolvendo o dto
+        // response 200 devolvendo o dto
         return ResponseEntity.ok(service.save(dto));
     }
 
